@@ -65,6 +65,7 @@
      <Compile Include="Assets\ILRuntime\Other\NeedAdaptorAttribute.cs" />
      <Compile Include="Assets\ILRuntime\Other\ThreadSafeDictionary.cs" />
      <Compile Include="Assets\ILRuntime\Other\UncheckedList.cs" />
+     <Compile Include="Assets\ILRuntime\Properties\AssemblyInfo.cs" />
      <Compile Include="Assets\ILRuntime\Reflection\Extensions.cs" />
      <Compile Include="Assets\ILRuntime\Reflection\ILRuntimeConstructorInfo.cs" />
      <Compile Include="Assets\ILRuntime\Reflection\ILRuntimeFieldInfo.cs" />
@@ -109,7 +110,6 @@
      <Compile Include="Assets\ILRuntime\Runtime\Enviorment\CLRRedirections.cs" />
      <Compile Include="Assets\ILRuntime\Runtime\Enviorment\CrossBindingAdaptor.cs" />
      <Compile Include="Assets\ILRuntime\Runtime\Enviorment\DelegateManager.cs" />
-     <Compile Include="Assets\ILRuntime\Runtime\Enviorment\ILContext.cs" />
      <Compile Include="Assets\ILRuntime\Runtime\Enviorment\InvocationContext.cs" />
      <Compile Include="Assets\ILRuntime\Runtime\Enviorment\ValueTypeBinder.cs" />
      <Compile Include="Assets\ILRuntime\Runtime\Extensions.cs" />
