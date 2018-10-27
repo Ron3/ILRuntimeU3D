@@ -1,8 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace HotFix_Project
 {
+    // TODO 蓝大.
+    public class Ron<T>
+    {
+        public Ron(T arg)
+        {
+            UnityEngine.Debug.Log("Arg is ===>" + arg);
+        }
+    }
+
     public class InstanceClass
     {
         private int id;
@@ -28,6 +38,13 @@ namespace HotFix_Project
         public static void StaticFunTest()
         {
             UnityEngine.Debug.Log("!!! InstanceClass.StaticFunTest()");
+            
+            // TODO 蓝大 测试代码
+            Type t = typeof(Ron<>);
+            UnityEngine.Debug.Log("t Type ==> " + t);
+            Type constructed = t.MakeGenericType(new Type[]{typeof(string)});
+            object obj = Activator.CreateInstance(constructed, new object[]{"Test Success"});
+
         }
 
         public static void StaticFunTest2(int a)

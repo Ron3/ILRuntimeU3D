@@ -49,6 +49,15 @@
       <HintPath>..\ILRuntimeDemo\Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\..\..\Applications\Unity\Hub\Editor\2017.4.9f1\Unity.app\Contents\Managed\UnityEngine\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\..\..\..\..\..\Applications\Unity\Hub\Editor\2017.4.9f1\Unity.app\Contents\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\..\..\..\Applications\Unity\Hub\Editor\2017.4.9f1\Unity.app\Contents\Managed\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TestJson.cs" />

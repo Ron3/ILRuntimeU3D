@@ -2,6 +2,18 @@
 using System.Collections;
 using System.IO;
 using ILRuntime.Runtime.Enviorment;
+using System.Reflection;
+
+// 我的问题是这样的.我想在dll里通过反射创建带有泛型参数的实例
+// TODO 蓝大 主工程里的测试代码.是正常的
+public class Ron2<T>
+{
+    public Ron2(T arg)
+    {
+        UnityEngine.Debug.Log("Ron2 arg ==>" + arg);
+    }
+}
+
 
 public class HelloWorld : MonoBehaviour
 {
@@ -11,6 +23,13 @@ public class HelloWorld : MonoBehaviour
 
     void Start()
     {
+        // TODO 蓝大, 主工程的测试代码
+        System.Type t = typeof(Ron2<>);
+        UnityEngine.Debug.Log("t Type ==> " + t);
+        System.Type constructed = t.MakeGenericType(new System.Type[]{typeof(string)});
+        object obj = System.Activator.CreateInstance(constructed, new object[]{"Test Success"});
+
+
         StartCoroutine(LoadHotFixAssembly());
     }
 
@@ -46,13 +65,17 @@ public class HelloWorld : MonoBehaviour
         if (!string.IsNullOrEmpty(www.error))
             UnityEngine.Debug.LogError(www.error);
         byte[] pdb = www.bytes;
-        using (System.IO.MemoryStream fs = new MemoryStream(dll))
-        {
-            using (System.IO.MemoryStream p = new MemoryStream(pdb))
-            {
-                appdomain.LoadAssembly(fs, p, new Mono.Cecil.Pdb.PdbReaderProvider());
-            }
-        }
+
+        System.IO.MemoryStream fs = new MemoryStream(dll);
+        appdomain.LoadAssembly(fs, null, null);
+
+        // using (System.IO.MemoryStream fs = new MemoryStream(dll))
+        // {
+        //     using (System.IO.MemoryStream p = new MemoryStream(pdb))
+        //     {
+        //         appdomain.LoadAssembly(fs, p, new Mono.Cecil.Pdb.PdbReaderProvider());
+        //     }
+        // }
 
         InitializeILRuntime();
         OnHotFixLoaded();
